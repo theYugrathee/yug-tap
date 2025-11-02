@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#667eea">
+    <link rel="manifest" href="manifest.json">
+    <title>YUG Tap Hero</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AdMob -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7767670077574881" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Home Screen -->
+        <div class="screen home-screen active" id="homeScreen">
+            <!-- AdMob Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7767670077574881"
+                 data-ad-slot="7507206539"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            
+            <!-- Additional AdMob Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7767670077574881"
+                 data-ad-slot="8611855908"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            
+            <div class="hero-section">
+                <h1 class="game-title">YUG TAP HERO</h1>
+                <div class="hero-character"></div>
+            </div>
+            <div class="menu-buttons">
+                <button class="btn primary-btn" id="playBtn">PLAY</button>
+                <button class="btn secondary-btn" id="storeBtn">STORE</button>
+                <button class="btn secondary-btn" id="coinsBtn">BUY COINS</button>
+            </div>
+            <div class="player-stats">
+                <div class="stat">
+                    <span class="stat-label">COINS</span>
+                    <span class="stat-value" id="coinsDisplay">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">HIGH SCORE</span>
+                    <span class="stat-value" id="highScoreDisplay">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen game-screen" id="gameScreen">
+            <div class="game-header">
+                <div class="game-stat">
+                    <span class="stat-label">SCORE</span>
+                    <span class="stat-value" id="scoreDisplay">0</span>
+                </div>
+                <div class="game-stat">
+                    <span class="stat-label">TIME</span>
+                    <span class="stat-value" id="timeDisplay">30</span>
+                </div>
+                <div class="game-stat">
+                    <span class="stat-label">COINS</span>
+                    <span class="stat-value" id="gameCoinsDisplay">0</span>
+                </div>
+            </div>
+            <div class="game-area" id="gameArea">
+                <div class="tap-target" id="tapTarget"></div>
+            </div>
+            <div class="power-ups">
+                <div class="power-up" id="doublePoints">2X</div>
+                <div class="power-up" id="slowMotion">SLOW</div>
+                <div class="power-up" id="extraTime">+5S</div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div class="screen game-over-screen" id="gameOverScreen">
+            <!-- AdMob Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7767670077574881"
+                 data-ad-slot="7507206539"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            
+            <h2 class="screen-title">GAME OVER</h2>
+            <div class="result-stats">
+                <div class="result-stat">
+                    <span class="stat-label">SCORE</span>
+                    <span class="stat-value" id="finalScore">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="stat-label">COINS EARNED</span>
+                    <span class="stat-value" id="coinsEarned">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="stat-label">HIGH SCORE</span>
+                    <span class="stat-value" id="newHighScore">0</span>
+                </div>
+            </div>
+            <div class="menu-buttons">
+                <button class="btn primary-btn" id="retryBtn">PLAY AGAIN</button>
+                <button class="btn secondary-btn" id="homeBtn">HOME</button>
+            </div>
+        </div>
+
+        <!-- Store Screen -->
+        <div class="screen store-screen" id="storeScreen">
+            <h2 class="screen-title">STORE</h2>
+            <div class="store-items">
+                <div class="store-item">
+                    <div class="item-icon multiplier"></div>
+                    <div class="item-info">
+                        <h3>Double Points</h3>
+                        <p>2X points for next 3 uses</p>
+                        <div class="item-price">
+                            <span>100</span>
+                            <div class="coin-icon"></div>
+                        </div>
+                    </div>
+                    <button class="btn buy-btn" data-item="doublePoints">BUY</button>
+                </div>
+                <div class="store-item">
+                    <div class="item-icon time-extension"></div>
+                    <div class="item-info">
+                        <h3>Extra Time</h3>
+                        <p>+10 seconds for next 3 uses</p>
+                        <div class="item-price">
+                            <span>150</span>
+                            <div class="coin-icon"></div>
+                        </div>
+                    </div>
+                    <button class="btn buy-btn" data-item="extraTime">BUY</button>
+                </div>
+                <div class="store-item">
+                    <div class="item-icon auto-tapper"></div>
+                    <div class="item-info">
+                        <h3>Slow Motion</h3>
+                        <p>Slower targets for next 3 uses</p>
+                        <div class="item-price">
+                            <span>250</span>
+                            <div class="coin-icon"></div>
+                        </div>
+                    </div>
+                    <button class="btn buy-btn" data-item="slowMotion">BUY</button>
+                </div>
+            </div>
+            <button class="btn secondary-btn" id="backFromStoreBtn">BACK</button>
+        </div>
+
+        <!-- Coins Store Screen -->
+        <div class="screen coins-store-screen" id="coinsStoreScreen">
+            <h2 class="screen-title">BUY COINS</h2>
+            <div class="coins-packages">
+                <div class="coin-package" data-coins="100" data-price="50">
+                    <div class="package-coins">100 COINS</div>
+                    <div class="package-price">₹50</div>
+                    <button class="btn primary-btn buy-coins-btn">BUY NOW</button>
+                </div>
+                <div class="coin-package" data-coins="500" data-price="200">
+                    <div class="package-coins">500 COINS</div>
+                    <div class="package-price">₹200</div>
+                    <button class="btn primary-btn buy-coins-btn">BUY NOW</button>
+                </div>
+                <div class="coin-package" data-coins="1000" data-price="350">
+                    <div class="package-coins">1000 COINS</div>
+                    <div class="package-price">₹350</div>
+                    <button class="btn primary-btn buy-coins-btn">BUY NOW</button>
+                </div>
+                <div class="coin-package" data-coins="2500" data-price="750">
+                    <div class="package-coins">2500 COINS</div>
+                    <div class="package-price">₹750</div>
+                    <button class="btn primary-btn buy-coins-btn">BUY NOW</button>
+                </div>
+            </div>
+            <button class="btn secondary-btn" id="backFromCoinsStoreBtn">BACK</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
